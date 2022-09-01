@@ -5,10 +5,32 @@
   background-size: cover;
   overflow-x: hidden;
 }
+.heading {
+  width: 100%;
+  text-align: left;
+  padding: 21px 60px;
+  background-color: #fff;
+  z-index: 6;
+}
 
-.page-header {
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  border-bottom: 1px solid #ccc;
+}
+
+.sticky + .content {
+  padding-top: 100px;
+}
+.logo {
+  width: 120px;
+}
+
+.page-title {
   text-align: "center";
   font-size: 42px;
+  margin-top: 23px;
 }
 .gray-text {
   color: #707070;
