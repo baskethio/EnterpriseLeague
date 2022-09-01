@@ -63,3 +63,8 @@
 .light-gray {
   color: #707070;
 }
+.choice {
+  width: 50%;
+  text-align: center;
+  display: inline-block;
+}

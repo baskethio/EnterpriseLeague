@@ -10,8 +10,12 @@ import {
   Text,
   Box,
   Spoiler,
+  Modal,
+  Button,
 } from "@mantine/core";
 import logo from "./assets/logo-header.svg";
+import not from "./assets/images/not.png";
+import yes from "./assets/images/yes.png";
 
 import newsItems from "./data/news";
 import pressItems from "./data/press";
@@ -38,11 +42,55 @@ const useStyles = createStyles((theme) => ({
 
 function App() {
   const [leagueIn, setLeagueIn] = useState(1);
+  const [opened, setOpened] = useState(false);
   const league_in_titles = ["In the News", "Press"];
 
   const { classes } = useStyles();
+
+  const choiceMade = () => {
+    localStorage.setItem("choice", "made");
+    setOpened(false);
+  };
+
+  const popup = (
+    <Modal
+      opened={opened}
+      withCloseButton={false}
+      size="90%"
+      onClose={() => setOpened(false)}
+    >
+      <Text align="center" weight={500}>
+        Do you need micro business loans?
+      </Text>
+      <Text align="center">
+        Quick loans for business, invoice financing and flexible loans
+      </Text>
+      <div className="choices">
+        <div className="choice">
+          <img src={not} alt="NOT REALLY" />
+          <Button style={{ backgroundColor: "#85589F" }} onClick={choiceMade}>
+            NOT REALLY
+          </Button>
+        </div>
+        <div className="choice">
+          <img src={yes} alt="YES! EXTRA MONEY" />
+          <Button style={{ backgroundColor: "#41A7A3" }} onClick={choiceMade}>
+            YES! EXTRA MONEY
+          </Button>
+        </div>
+      </div>
+    </Modal>
+  );
+
+  const showPopup = () => {
+    if (!localStorage.getItem("choice")) {
+      setOpened(true);
+    }
+  };
+
   useEffect(() => {
     setLeagueIn(0);
+    setTimeout(showPopup, 10000);
   }, []);
 
   useEffect(() => {
@@ -59,6 +107,7 @@ function App() {
 
   return (
     <div className="App">
+      {popup}
       <div className="heading" id="header">
         <img className="logo" src={logo} alt="Logo" />
         <div className="nav">
