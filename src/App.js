@@ -88,6 +88,19 @@ function App() {
       description:
         "We are expecting to fare even better as there will be an increasing need to connect EU and UK SMEs to work together. As we are breaking walls",
     },
+    {
+      image: "globalapptesting.png",
+      title: "Time Management Techniques from CTOs",
+      description:
+        "As a CTO the most important things for me are the productivity & efficiency of my team. Considering the fast-paced & information-saturated world we live in, ",
+    },
+    {
+      image: "cydomedia.png",
+      title:
+        "3 Entrepreneurs provide advice on leading teams with remote employees",
+      description:
+        "At Enterprise League, people are our most valuable resources. Their contribution helps us keep the business",
+    },
   ];
 
   return (
