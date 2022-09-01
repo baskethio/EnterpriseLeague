@@ -5,12 +5,28 @@
   background-size: cover;
   overflow-x: hidden;
 }
+.app * {
+  font-family: "MuseoSansRegular";
+}
+
 .heading {
   width: 100%;
   text-align: left;
   padding: 21px 60px;
   background-color: #fff;
   z-index: 6;
+}
+
+.nav {
+  margin-left: 10%;
+  display: inline-block;
+}
+
+.nav-item {
+  cursor: pointer;
+  font-family: "MuseoSansRegular";
+  margin-left: 16px;
+  display: inline-block;
 }
 
 .sticky {
@@ -37,4 +53,13 @@
 }
 .blue-text {
   color: #228cd5;
+}
+
+.press-image {
+  float: left;
+  margin: 7px;
+  padding: 0 20px 20px 0;
+}
+.light-gray {
+  color: #707070;
 }

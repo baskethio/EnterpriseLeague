@@ -9,10 +9,12 @@ import {
   Group,
   Text,
   Box,
+  Spoiler,
 } from "@mantine/core";
 import logo from "./assets/logo-header.svg";
 
 import newsItems from "./data/news";
+import pressItems from "./data/press";
 
 const useStyles = createStyles((theme) => ({
   tab: {
@@ -27,6 +29,10 @@ const useStyles = createStyles((theme) => ({
   },
   panel: {
     marginTop: "29px",
+  },
+  control: {
+    float: "right",
+    bottom: "5px",
   },
 }));
 
@@ -55,6 +61,11 @@ function App() {
     <div className="App">
       <div className="heading" id="header">
         <img className="logo" src={logo} alt="Logo" />
+        <div className="nav">
+          <div className="nav-item">Product</div>
+          <div className="nav-item">Company</div>
+          <div className="nav-item">Resources</div>
+        </div>
       </div>
       <div className="content">
         <div className="page-title">
@@ -115,7 +126,54 @@ function App() {
               ))}
             </SimpleGrid>
           </Tabs.Panel>
-          <Tabs.Panel value="1">Second panel</Tabs.Panel>
+
+          <Tabs.Panel value="1">
+            <div className="content">
+              {pressItems.map((press, index) => (
+                <Spoiler
+                  classNames={{
+                    control: classes.control,
+                  }}
+                  key={index}
+                  maxHeight={180}
+                  showLabel="Read More"
+                  hideLabel="Read Less"
+                  style={{
+                    backgroundColor: "#fff",
+                    margin: "15px 10%",
+                    padding: "21px",
+                    paddingBottom: "30px",
+                    textAlign: "justify",
+                    border: "1px solid #ccc",
+                    borderRadius: "10px",
+                    boxShadow: "0px 3px 6px #00000029",
+                  }}
+                >
+                  <img
+                    className="press-image"
+                    width={150}
+                    src={
+                      "https://enterpriseleague.com/public/img/press/" +
+                      press.image
+                    }
+                    alt={press.title}
+                  />
+                  <Text align="center" weight={500}>
+                    {press.title}
+                  </Text>
+                  <Text size="md" className="light-gray">
+                    {press.location + ", " + press.time}
+                  </Text>
+                  <br />
+                  <Text mt={12} className="light-gray">
+                    {press.content}
+                  </Text>
+                  <Text>{press.author}</Text>
+                  <Text>{press.autorPosition}</Text>
+                </Spoiler>
+              ))}
+            </div>
+          </Tabs.Panel>
         </Tabs>
       </div>
     </div>
