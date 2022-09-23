@@ -56,7 +56,7 @@ function App() {
     <Modal
       opened={opened}
       withCloseButton={false}
-      size="90%"
+      size="70%"
       onClose={() => setOpened(false)}
     >
       <Text align="center" weight={500}>
@@ -67,13 +67,17 @@ function App() {
       </Text>
       <div className="choices">
         <div className="choice">
-          <img src={not} alt="NOT REALLY" />
+          <div>
+            <img src={not} alt="NOT REALLY" />
+          </div>
           <Button style={{ backgroundColor: "#85589F" }} onClick={choiceMade}>
             NOT REALLY
           </Button>
         </div>
         <div className="choice">
-          <img src={yes} alt="YES! EXTRA MONEY" />
+          <div>
+            <img src={yes} alt="YES! EXTRA MONEY" />
+          </div>
           <Button style={{ backgroundColor: "#41A7A3" }} onClick={choiceMade}>
             YES! EXTRA MONEY
           </Button>
